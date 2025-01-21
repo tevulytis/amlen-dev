@@ -780,6 +780,13 @@ XAPI ism_prop_t * ism_security_createPolicyPropsFromJson(const char *policyBuf, 
         ism_common_setProperty(props, "DefaultSelectionRule", &f);
     }
 
+    value = ism_json_getString(&parseobj, "OutgoingQos");
+    if (value && *value != '\0') {
+        f.type = VT_String;
+        f.val.s = (void *)value;
+        ism_common_setProperty(props, "OutgoingQos", &f);
+    }
+
     return props;
 }
 
@@ -978,6 +985,15 @@ static ism_prop_t * ism_security_createOnePolicyProp(ism_prop_t *props, char *po
         f.type = VT_String;
         f.val.s = (void *)value;
         ism_common_setProperty(newProps, "DefaultSelectionRule", &f);
+        found = 1;
+    }
+
+    snprintf(cfgname, cfglen, "%s.OutgoingQos.%s", polType, polname);
+    value = (char *) ism_common_getStringProperty(props, cfgname);
+    if ( value && *value != '\0') {
+        f.type = VT_String;
+        f.val.s = (void *)value;
+        ism_common_setProperty(newProps, "OutgoingQos", &f);
         found = 1;
     }
 
