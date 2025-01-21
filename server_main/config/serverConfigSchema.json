@@ -2300,7 +2300,7 @@
 		"Component": "Security", 
 		"About": "Messaging authorization policy for Subscriptions.", 
 		"ObjectType": "Composite", 
-		"ListObjects": "Name,Description,ClientID,ClientAddress,UserID,GroupID,CommonNames,Protocol,Subscription,ActionList,MaxMessages,MaxMessagesBehavior,MaxMessageTimeToLive,DisconnectedClientNotification,DefaultSelectionRule", 
+		"ListObjects": "Name,Description,ClientID,ClientAddress,UserID,GroupID,CommonNames,Protocol,Subscription,ActionList,MaxMessages,MaxMessagesBehavior,MaxMessageTimeToLive,DisconnectedClientNotification,DefaultSelectionRule,OutgoingQos", 
 		"Name": 
 		{
 			"Type": "Name", 
@@ -2411,6 +2411,14 @@
 			"Type": "Selector",
 			"MaxLength": 4096,
 			"About": "Default selection rule to apply to subscriptions using this policy."
+		},
+
+		"OutgoingQos": 
+		{
+			"Type": "Enum", 
+			"Default": "0", 
+			"Options": "0,1,2", 
+			"About": "Specifies the Quality of Service level used for sending messages to subscriber."
 		}
 	}, 
 
