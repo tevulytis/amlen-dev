@@ -356,7 +356,7 @@
 		<build.activity label="Building RPMS" activityIdProperty="startRPMBuildId" />
 		<!-- load tmp properties -->
 
-		<property name="pkgmode" value="default_rpms" /> 
+		<property name="pkgmode" value="server_rpm" /> 
 		<exec dir="${basedir}" executable="${basedir}/build_pkg.sh" resultproperty="app-retcode" resolveexecutable="true">
 			<arg value="${pkgmode}" />
 			<arg value="${broot}" />
