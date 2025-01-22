@@ -57,7 +57,6 @@
 		<antcall target="build-tms" />
 		<property name="jsdoc.fails.build" value="false" />
 		<antcall target="build-serverplugin" />
-		<antcall target="build-gui" />
 		<antcall target="build-server_proxy_br" />
 		<ant dir="${workspace}/client_build" target="build_sdk_oss" inheritRefs="false" />
 		<!-- <antcall target="build-clientbundle" /> -->
