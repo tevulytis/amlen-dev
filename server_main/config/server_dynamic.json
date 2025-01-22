@@ -159,7 +159,8 @@
       "Protocol": "JMS,MQTT",
       "ActionList": "Receive,Control",
       "MaxMessages": 5000,
-      "MaxMessagesBehavior": "RejectNewMessages"
+      "MaxMessagesBehavior": "RejectNewMessages",
+      "OutgoingQos": "1"
     }
   },
   "HighAvailability": {
