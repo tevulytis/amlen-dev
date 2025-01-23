@@ -117,6 +117,7 @@ typedef struct tag_iepiPolicyInfo_t
     bool                          allowSend;            ///< Whether send (put) is allowed to a queue                 (Queue)
     bool                          DCNEnabled;           ///< Whether disconnected client notification is enabled      (Subscription)
     iepiMaxMsgBehavior_t          maxMsgBehavior;       ///< What to do when maximum message count or bytes buffered  (Subscription/RemoteServer)
+    uint8_t                       outgoingQos;          ///< What is the MQTT QoS for message going to subscriber (Subscription)
     iepiSelectionInfo_t          *defaultSelectionInfo; ///< Policy based default selection information                       (Subscription)
     volatile iepiCreationState_t  creationState;        ///< The creation / deletion state of this policy
     ismSecurityPolicyType_t       policyType;           ///< The policy type for this policy
