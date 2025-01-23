@@ -1923,6 +1923,7 @@ static inline void ismEngine_DisplayProperties(ism_prop_t *props)
 #define ismENGINE_ADMIN_PROPERTY_MAXMESSAGESBEHAVIOR  "MaxMessagesBehavior"   ///< Behavior to use when maximum messages buffered on a subscription
 #define ismENGINE_ADMIN_VALUE_REJECTNEWMESSAGES       "RejectNewMessages"     ///< Reject new messages
 #define ismENGINE_ADMIN_VALUE_DISCARDOLDMESSAGES      "DiscardOldMessages"    ///< Discard the oldest (first) messages available to the engine
+#define ismENGINE_ADMIN_VALUE_OUTGOINGQOS             "OutgoingQos"           ///< What is the MQTT QoS for message going to subscriber
 
 // This must be at least as long as the longest property we want to query
 #define ismENGINE_MAX_ADMIN_PROPERTY_LENGTH  50
