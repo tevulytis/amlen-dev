@@ -517,6 +517,28 @@ int32_t iepi_updatePolicyInfoFromProperties(ieutThreadData_t *pThreadData,
         }
     }
 
+
+    // Set OutgoingQos
+    sprintf(propertyName, propertyNameFormat, ismENGINE_ADMIN_VALUE_OUTGOINGQOS);
+
+    propertyString = ism_common_getStringProperty(pProperties, propertyName);
+
+    if (propertyString != NULL)
+    {
+        uint8_t newoutgoingQos = 0;
+
+        // Update the policy info if the maxMsgBehavior value has changed
+        if (newoutgoingQos != 0 && newoutgoingQos != pPolicyInfo->outgoingQos)
+        {
+            pPolicyInfo->outgoingQos = newoutgoingQos;
+
+            ieutTRACEL(pThreadData, pPolicyInfo->outgoingQos, ENGINE_HIGH_TRACE,
+                       "outgoingQos set to %u\n", (uint32_t)pPolicyInfo->outgoingQos);
+            policyInfoUpdated = true;
+        }
+    }
+
+
     // Set concurrentConsumers
     sprintf(propertyName, propertyNameFormat, ismENGINE_ADMIN_PROPERTY_CONCURRENTCONSUMERS);
 
