@@ -45,6 +45,7 @@ iepiPolicyInfo_t iepiPolicyInfo_DEFAULT =
     true,                                    // allowSend
     false,                                   // DCNEnabled
     RejectNewMessages,                       // maxMsgBehavior
+    0,                                       // OutgoingQos
     NULL,                                    // defaultSelectionInfo
     CreatedByEngine,                         // creationState
     ismSEC_POLICY_LAST,                      // policyType
