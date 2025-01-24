@@ -527,7 +527,7 @@ int32_t iepi_updatePolicyInfoFromProperties(ieutThreadData_t *pThreadData,
     {
         uint8_t newoutgoingQos = 0;
 
-        // Update the policy info if the maxMsgBehavior value has changed
+        // Update the policy info if the OutgoingQos value has changed
         if (newoutgoingQos != 0 && newoutgoingQos != pPolicyInfo->outgoingQos)
         {
             pPolicyInfo->outgoingQos = newoutgoingQos;
