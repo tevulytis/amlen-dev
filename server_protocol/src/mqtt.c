@@ -25,6 +25,7 @@
 #include <throttle.h>
 #include <protoex.h>
 #include <selector.h>
+#include <ismutil.h>
 
 /*
  * The MQTT protocol handles two methods of framing MQTT:
@@ -999,6 +1000,10 @@ HOT int ism_mqtt_receive(ism_transport_t * transport, char * buf, int buflen, in
          * Publish
          */
         case MT_PUBLISH:
+
+            uint8_t outgoingQosFromConfig;
+            outgoingQosFromConfig = (uint8_t)ism_common_getProperty(props, "OutgoingQos", 0); // TODO: how to access props form eninge?
+            
             /*
              * Process a PUBLISHX which is only in proxy protocol
              */
@@ -1007,7 +1012,7 @@ HOT int ism_mqtt_receive(ism_transport_t * transport, char * buf, int buflen, in
                 if (buflen > 3) {
                     kind = *bp++;
                     buflen--;
-                    mmsg.qos = (uint8_t)((kind >> 1) & 3);
+                    mmsg.qos = (uint8_t)outgoingQosFromConfig;
                     mmsg.isMsgid = (uint8_t)((kind>>4) & 1);
                     /* Process extension */
                     if (kind&0x20) {
@@ -1032,7 +1037,7 @@ HOT int ism_mqtt_receive(ism_transport_t * transport, char * buf, int buflen, in
                 }
             } else {
                 /* Normal MQTT PUBLISH */
-                mmsg.qos = (uint8_t)((kind >> 1) & 3);
+                mmsg.qos = (uint8_t)outgoingQosFromConfig;
                 mmsg.isMsgid = mmsg.qos>0;
             }
             mmsg.retain = (uint8_t)(kind & 1);
