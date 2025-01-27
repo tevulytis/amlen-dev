@@ -1826,11 +1826,11 @@ XAPI int ism_security_dynamicPolicyUpdate(char *propname, int offset, ism_prop_t
 
         if (newValue) {
             if (!strcmpi(newValue, "0")) {
-                policy->OutgoingQos = ((uint8_t)0;
+                policy->OutgoingQos = (uint8_t)0;
             } else if (!strcmpi(newValue, "1")) {
-                policy->OutgoingQos = ((uint8_t)1;
+                policy->OutgoingQos = (uint8_t)1;
             } else if (!strcmpi(newValue, "2")) {
-                policy->OutgoingQos = ((uint8_t)2;
+                policy->OutgoingQos = (uint8_t)2;
             }
              else {
                 TRACE(3, "updatePolicy: OutgoingQos has invalid value:%s\n", newValue);
