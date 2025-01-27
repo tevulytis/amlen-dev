@@ -1058,6 +1058,7 @@ XAPI int ism_security_createPolicyFromProps(ism_prop_t *polprops, int type, char
     char *notifyStr = NULL;
     int  allowDurable            = 1;
     int  allowPersistentMessages = 1;
+    uint8_t outgoingQos = 0;
     ExpectedMsgRate_t expMsgRate = EXPECTEDMSGRATE_DEFAULT;
     uint32_t maxSessionExpiry = 0;
     ism_prop_t *newProps = NULL;
@@ -1254,6 +1255,8 @@ XAPI int ism_security_createPolicyFromProps(ism_prop_t *polprops, int type, char
             break;
         }
 
+        outgoingQos = (uint8_t)ism_common_getUintProperty(props, "OutgoingQos", 0);
+
         TRACE(9, "Add SubscriptionPolicy: %s\n", name);
         policy = (ismPolicyRule_t *) ism_common_calloc(ISM_MEM_PROBE(ism_memory_admin_misc,90),1, sizeof(ismPolicyRule_t));
         pthread_spin_init(&policy->lock, 0);
@@ -1261,6 +1264,7 @@ XAPI int ism_security_createPolicyFromProps(ism_prop_t *polprops, int type, char
         policy->type = ismSEC_POLICY_SUBSCRIPTION;
         policy->Destination = ism_common_strdup(ISM_MEM_PROBE(ism_memory_admin_misc,1000),destination);
         policy->destType = ismSEC_AUTH_SUBSCRIPTION;
+        policy->OutgoingQos = outgoingQos;
 
         break;
     }
