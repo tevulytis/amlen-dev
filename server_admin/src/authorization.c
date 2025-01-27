@@ -2190,6 +2190,20 @@ XAPI int ism_security_context_getAllowDurable(ismSecurity_t *sContext)
         }
 }
 
+XAPI int ism_security_context_getOutgoingQos(ismSecurity_t *sContext)
+{
+        if (sContext != NULL)
+        {
+            // Iterate over subscription policies and if it contains field OutgoingQos, then return its value
+            
+            return 0;
+        }else {
+            return -1;
+        }
+}
+
+
+
 XAPI int ism_security_context_getAllowPersistentMessages(ismSecurity_t *sContext)
 {
         if (sContext != NULL)
