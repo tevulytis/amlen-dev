@@ -1001,8 +1001,7 @@ HOT int ism_mqtt_receive(ism_transport_t * transport, char * buf, int buflen, in
          */
         case MT_PUBLISH:
 
-            uint8_t outgoingQosFromConfig;
-            outgoingQosFromConfig = (uint8_t)ism_security_context_getOutgoingQos(transport->security_context);
+            uint8_t outgoingQosFromConfig = (uint8_t)ism_security_context_getOutgoingQos(transport->security_context);
             
             /*
              * Process a PUBLISHX which is only in proxy protocol
