@@ -2190,7 +2190,7 @@ XAPI int ism_security_context_getAllowDurable(ismSecurity_t *sContext)
         }
 }
 
-XAPI int ism_security_context_getOutgoingQos(ismSecurity_t *sContext)
+XAPI uint8_t ism_security_context_getOutgoingQos(ismSecurity_t *sContext)
 {
         if (sContext != NULL)
         {
