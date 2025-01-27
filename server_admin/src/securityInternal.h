@@ -96,6 +96,7 @@ typedef struct {
     int                DisconnectedClientNotification;
     int                AllowDurable;
     int                AllowPersistentMessages;
+    uint8_t            OutgoingQos;
     ExpectedMsgRate_t  ExpMsgRate;
     uint32_t           MaxSessionExpiry;
 } ismPolicyRule_t;
