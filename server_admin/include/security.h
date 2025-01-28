@@ -528,7 +528,7 @@ XAPI void *ism_security_get_policyContextByName(char *name, ism_ConfigComponentT
 
 XAPI int ism_security_context_getAllowDurable(ismSecurity_t *sContext);
 
-XAPI int ism_security_context_getOutgoingQos(ismSecurity_t *sContext);
+XAPI uint8_t ism_security_context_getOutgoingQos(ismSecurity_t *sContext);
 
 XAPI int ism_security_context_getAllowPersistentMessages(ismSecurity_t *sContext);
 
