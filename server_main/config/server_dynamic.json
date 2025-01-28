@@ -3,6 +3,7 @@
   "ServerVersion":"2.0 Beta",
   "ServerName": "",
   "ServerUID": "",
+  "OutgoingQos": 1,
   "FIPS": false,
   "AdminUserID": "admin",
   "AdminUserPassword": "47602bafa456d839",

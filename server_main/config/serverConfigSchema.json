@@ -29,6 +29,17 @@
 		"Type": "String", 
 		"About": "The NodeName of the server. Needed for Cluster. Default value is hostname:admin_port.", 
 		"MaxLength": "1024"
+	},
+
+	"OutgoingQos": 
+	{
+		"Component": "Server", 
+		"ObjectType": "Singleton", 
+		"Type": "Number", 
+		"Minimum": "0", 
+		"Maximum": "2", 
+		"Default": "0",
+		"About": "Set outgoing Qos for subscribing MQTT clients"
 	}, 
 
 	"FIPS": 
