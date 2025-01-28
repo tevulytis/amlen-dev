@@ -49,6 +49,7 @@ static int    platform_isVM = -1;
 static char * platform_serial_number = NULL;
 static char * server_uid = NULL;
 static char * server_name = NULL;
+static int    outgoingQos = 0;
 static ism_platformType_t platform_type = PLATFORM_TYPE_UNKNOWN;
 static ism_licenseType_t platform_license_type = PLATFORM_LICENSE_UNKNOWN;
 static int    platform_data_inited = 0;
@@ -1450,6 +1451,15 @@ void ism_common_setServerUID(const char * value) {
     }
     pthread_mutex_unlock(&g_utillock);
 }
+
+/*
+ * Set the outgoing qos
+ */
+void ism_common_setOutgoingQos(int value) {
+    outgoingQos = value;
+    TRACE(3, "Set outgoing Qos to: %d\n", value);
+}
+
 
 /*
  * Tell utils that messaging has started

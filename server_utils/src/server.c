@@ -349,6 +349,13 @@ XAPI int ism_server_config(char * object, char * namex, ism_prop_t * props, ism_
         }
 
         /*
+         * Change outgoing qos
+         */
+        else if (!strcmp(name, "OutgoingQos")) {
+            ism_common_setOutgoingQos(ism_common_getIntProperty(props, "OutgoingQos", 0));
+        }
+
+        /*
          * Set the licensed usage
          */
         else if (!strcmp(name, "LicensedUsage")) {
