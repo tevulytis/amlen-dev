@@ -2196,7 +2196,7 @@ XAPI uint8_t ism_security_context_getOutgoingQos(ismSecurity_t *sContext)
         {
             // Iterate over subscription policies and if it contains field OutgoingQos, then return its value
             
-            return 0;
+            return 1;
         }else {
             return -1;
         }
