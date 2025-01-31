@@ -27,18 +27,19 @@ RUN groupadd -g 1000 $IMAUSER \
 
 WORKDIR /usr/share/amlen-server/bin
 
-# Install packages
-#RUN yum -y update
+# Update system
+RUN yum -y update
 
-RUN yum -y install gdb net-tools openssh-clients openssl tar perl jansson zip logrotate bzip2 unzip
+# Install required packages
+RUN yum -y install gdb net-tools openssh-clients openssl tar perl jansson zip logrotate bzip2 unzip less
 
-COPY EclipseAmlenServer-1.0.0.2-20250129.0843_build.almalinux8.x86_64.rpm /tmp/imaserver.rpm
+COPY EclipseAmlenServer-1.0.0.2-20250131.0759_build.almalinux8.x86_64.rpm /tmp/imaserver.rpm
 
+# Install the server
 RUN yum -y localinstall /tmp/imaserver.rpm
 
+# cleanup
 RUN rm -f /tmp/imaserver.rpm
-
-ENV LD_LIBRARY_PATH=/usr/lib64
 
 #USER $IMAUSER:$IMAUSER
 
