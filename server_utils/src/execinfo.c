@@ -1460,6 +1460,13 @@ void ism_common_setOutgoingQos(int value) {
     TRACE(3, "Set outgoing Qos to: %d\n", value);
 }
 
+/*
+ * Get the outgoing qos
+ */
+int ism_common_getOutgoingQos(void) {
+    return outgoingQos;
+}
+
 
 /*
  * Tell utils that messaging has started
